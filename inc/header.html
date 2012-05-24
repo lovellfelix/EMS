@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+<title><?php echo $page_title; ?></title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link rel="stylesheet" type="text/css" href="css/main.css" />
+<link rel="stylesheet" href="css/form.css" type="text/css" />
+
+</head>
+<body>
+
+<div id="outer">
+
+	<div id="upbg"></div>
+
+	<div id="inner">
+
+		<div id="header">
+			<h1><span>ESSS</span><sup></sup></h1>
+			<h2>System Designs & Implementation</h2>
+		</div>
+	
+		<div id="splash"></div>
+	
+		<div id="menu">
+			<ul>
+				<li class="first"><a href="index.php">Home</a></li>
+				<li><a href="employees.php">Employee Directory</a></li>
+				<li><a href="management.php">Management</a></li>
+				<li><a href="HR-functions.php">HR Function</a></li>
+<li><?php // Create a login/logout link:
+if ( (isset($_SESSION['empid'])) && (!strpos($_SERVER['PHP_SELF'], 'logout.php')) ) {
+	echo '<a href="logout.php">Logout</a>';
+} else {
+	echo '<a href="login.php">Login</a>';
+}
+?></li>
+			</ul>
+
+		<div id="date"><?php echo date("l F d, Y"); ?> </div>
+		</div>
+
+		<div id="primarycontent">
