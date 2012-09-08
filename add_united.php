@@ -1,7 +1,7 @@
-<?php # Script 8.3 - register.php
+<?php # 
 
 $page_title = 'Add United Way | ESSS';
-include ('inc/header.html');
+include ('inc/header.php');
 
 // Check if the form has been submitted:
 if (isset($_POST['submitted'])) {
@@ -108,6 +108,6 @@ if (isset($_POST['submitted'])) {
 
 <?php
 echo '</div>';
-include './inc/sidebar.html';
-include ('./inc/footer.html');
+
+include ('./inc/footer.php');
 ?>

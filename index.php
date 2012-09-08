@@ -1,49 +1,40 @@
 <?php
 session_start();
-		 $page_title = 'ESSS Client System| Home';
-		 include 'inc/header.html';
+
+		 $page_title = 'EMS - Home'; $crumbs = "EMS"; $pageurl = "index.php"; $subCrumbs = "*"; $subCrumbsurl ="";
+		 include_once 'inc/header.php';
 	
 		 ?>
-        
+        <div id="myCarousel" class="carousel slide">
+                <div class="carousel-inner">
+                  <div class="item active">
+                    <img src="assets/img/f3.jpg" width="700" height="150" alt="" >
+                    <div class="carousel-caption">
+                      <h4>EMS - EMPLOYEE MANAGEMENT SYSTEM</h4>
+                      <p>Employee Management System control Human Resources and personnel management. Advanced features make this application both flexible and easy-to-use!
+</p>
+                    </div>
+                  </div>
+                
+                </div>
+               
+              </div>
+            </div>
+            
+            
+            
+            
+           </div>
+</div><hr class="soften">
         	<!-- primary content start -->
 		
-		  <div class="post">
-			<div class="header">
-			<div class="date"></div>
-				</div>
-			<div class="content">
-            <!--<p> <font color="#FF0000"size="3">Security feature on site Removed! All pages can be viewed</font></p>-->
-            <?php //include ('inc/feature/index.html');?>
-			<div><strong><center>Welcome to ESSS Client Service System</center></strong></div>
-            <img src="images/index.png" width="500" height="300" /></div>
-</div>
+
+
 		
-			<div class="post">
-				<div class="header">
-					
-					<div class="date"></div>
-				</div>
-				<div class="content">
-					
-					<p></p>
-				</div>
-			</div>
-
-			<div class="post">
-				<div class="header">
-					
-					<div class="date"></div>
-				</div>
-				<div class="content">
-					<p></p>
-				
-				</div>
-			</div>
-
-			<!-- primary content end -->
 	
-		</div>
+
+		
         
         <?php
-		include 'inc/sidebar.html';
-		include "inc/footer.html"?>
+		include_once 'inc/sidebar.php';
+		include_once 'inc/footer.php';?>

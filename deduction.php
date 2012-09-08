@@ -1,10 +1,8 @@
-<?php # Script 9.5 - #5
+<?php 
 
-// This script retrieves all the records from the users table.
-// This new version allows the results to be sorted in different ways.
 session_start(); // Access the existing session.
 $page_title = 'ESSS| Report-Employee Deductions';
-include ('inc/header.html');
+include ('inc/header.php');
 echo '<h2><small>REPORT MENU: Deductions</h2> </small><br /> <hr> <br />';
 
 require_once ('./mysqli_connect.php');
@@ -42,23 +40,23 @@ $sort = (isset($_GET['sort'])) ? $_GET['sort'] : 'rd';
 
 // Determine the sorting order:
 switch ($sort) {
-	case 'rf':
+	case 'dn':
 		$order_by = 'dedname ASC';
 		break;
-	case 't':
-		$order_by = 'empfirstname ASC';
+	case 'fn':
+		$order_by = 'employee.empfirstname ASC';
 		break;
-	case 'c':
-		$order_by = 'emplastname ASC';
+	case 'ln':
+		$order_by = 'employee.emplastname ASC';
 		break;
 	default:
-		$order_by = 'empfirstname ASC';
-		$sort = 't';
+		$order_by = 'miscdeduction.DeDRequestDate ASC';
+		$sort = 'rd';
 		break;
 }
 	
 // Make the query:
-//$q = "SELECT empfirstname, emplastname, empjobtitle, empid, empofficephone FROM employee ORDER BY $order_by LIMIT $start, $display";		
+		
 $q = "SELECT miscdeduction.empid, miscdeduction.DeDRequestDate, miscdeduction.dedname,
 miscdeduction.dedfrequency, 	
  CONCAT(  '$', FORMAT( miscdeduction.dedamount, 2 ) ) As amount, 
@@ -71,10 +69,10 @@ $r = @mysqli_query ($dbc, $q); // Run the query.
 echo '<table align="center" cellspacing="5" cellpadding="5" width="100%">
 
 <tr>
-	<td align="left"><b><a href="deduction.php?sort=t">First Name</a></b></td>
-	<td align="left"><b><a href="deduction.php?sort=c">Last Name</a></b></td>
+	<td align="left"><b><a href="deduction.php?sort=fn">First Name</a></b></td>
+	<td align="left"><b><a href="deduction.php?sort=ln">Last Name</a></b></td>
 	<td align="left"><b><a href="deduction.php?sort=rd">Request Date</a></b></td>
-	<td align="left"><b><a href="deduction.php?sort=rf">Deduction Type</a></b></td>
+	<td align="left"><b><a href="deduction.php?sort=dn">Deduction Type</a></b></td>
 	
 	
 	<td align="left"><b>Amount</b></td>
@@ -127,9 +125,9 @@ if ($pages > 1) {
 		echo '<a href="deduction.php?s=' . ($start + $display) . '&p=' . $pages . '&sort=' . $sort . '">Next</a>';
 	}
 	
-	echo '</p>'; // Close the paragraph.
+	echo '</p><hr class="soften">'; // Close the paragraph.
 	
 } // End of links section.
 	
-include ('inc/footer.html');
+include ('inc/footer.php');
 ?>

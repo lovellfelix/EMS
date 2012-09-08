@@ -1,10 +1,10 @@
-<?php # Script 9.5 - #5
+<?php 
 
 // This script retrieves all the records from the users table.
 // This new version allows the results to be sorted in different ways.
 session_start(); // Access the existing session.
-$page_title = 'ESSS| Report-Salary Employees';
-include ('inc/header.html');
+$page_title = 'EMS - Report-Salary Employees';
+include ('inc/header.php');
 echo '<h2><small>REPORT MENU: List of Salary Employees </h2> </small><br /> <hr> <br />';
 
 require_once ('./mysqli_connect.php');
@@ -58,7 +58,7 @@ switch ($sort) {
 }
 	
 // Make the query:
-//$q = "SELECT empfirstname, emplastname, empjobtitle, empid, empofficephone FROM employee ORDER BY $order_by LIMIT $start, $display";		
+	
 $q = "SELECT salaryemployee.empid, CONCAT(  '$', FORMAT( salaryemployee.empannualsalary, 2 ) ) As salary, employee.empid, employee.empfirstname, employee.emplastname FROM salaryemployee, employee WHERE (employee.empid=salaryemployee.empid)";		
 
 $r = @mysqli_query ($dbc, $q); // Run the query.
@@ -121,9 +121,9 @@ if ($pages > 1) {
 		echo '<a href="report-salary-employees.php?s=' . ($start + $display) . '&p=' . $pages . '&sort=' . $sort . '">Next</a>';
 	}
 	
-	echo '</p>'; // Close the paragraph.
+	echo '</div></div></div><hr class="soften">'; // Close the paragraph.
 	
 } // End of links section.
 	
-include ('inc/footer.html');
+include ('inc/footer.php');
 ?>

@@ -1,4 +1,4 @@
-<?php # Script 11.2 - login_functions.inc.php
+<?php 
 
 // This page defines two functions used by the login/logout process.
 
@@ -52,9 +52,7 @@ function check_login($dbc, $username = '', $password = '') {
 	if (empty($errors)) { // If everything's OK.
 
 		// Retrieve the user_id and first_name for that email/password combination:
-		//$q = "SELECT movie.title, movie.category, customer.fname, customer.lname, rental.due_date FROM customer, movie, rental WHERE (movie.m_id=rental.m_id) and (customer.c_id=rental.c_id) and  (customer.fname='janet') and (customer.lname='akers')";
 
-//$q = "SELECT empid, username, password, role FROM user WHERE (username='$u' AND password=SHA1('$p'))";	
 
 $q = "SELECT user.empid, user.username, user.password, user.role, employee.empid, employee.empfirstname, employee.emplastname FROM user, employee WHERE (employee.empid=user.empid) and (user.username='$u' AND user.password=SHA1('$p'))";		
 		$r = @mysqli_query ($dbc, $q); // Run the query.

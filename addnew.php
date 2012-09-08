@@ -1,4 +1,4 @@
-<?php # Script 8.3 - register.php
+<?php 
 session_start(); // Start the session.
 
 // If no session value is present, redirect the user:
@@ -9,7 +9,7 @@ if (!isset($_SESSION['empid'])) {
 	exit();	
 }
 $page_title = 'Register';
-include ('inc/header.html');
+include ('inc/header.php');
 
 
 require_once ('./mysqli_connect.php'); 
@@ -201,5 +201,5 @@ Password: <input type="password" name="password" size="20" maxlength="30" value=
 </form>
 <br> <br>
 <?php
-include ('inc/footer.html');
+include ('inc/footer.php');
 ?>

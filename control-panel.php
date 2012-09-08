@@ -1,4 +1,4 @@
-<?php # Script 11.9 - loggedin.php #2
+<?php # 
 
 // The user is redirected here from login.php.
 
@@ -13,8 +13,8 @@ if (!isset($_SESSION['empid'])) {
 }
 
 
-$page_title = 'ESSS| You are Logged In!';
-include ('./inc/header.html');
+$page_title = 'EMS - You are Logged In!';
+include ('./inc/header.php');
 
 
  function greet ($name, $msg, $balance, $due){
@@ -46,5 +46,5 @@ include ('./inc/header.html');
              greet("$name", "$balance","$due", "msg");
 			 
 echo '</ul></div>';			 
-include './inc/sidebar.html';              		
-include ('./inc/footer.html');?>
+           		
+include ('./inc/footer.php');?>

@@ -1,4 +1,4 @@
-<?php # Script 9.3 - edit_user.php
+<?php
 
 // This page is for editing a user record.
 // This page is accessed through view_users.php.
@@ -11,19 +11,19 @@ if (!isset($_SESSION['empid'])) {
 	header("Location: $url");
 	exit();	
 }
-$page_title = 'ESSS| Edit User Profile';
-include ('./inc/header.html');
+$page_title = 'EMS - Edit User Profile';
+include ('./inc/header.php');
 
 echo '<h1>Update User Profile</h1> <br > <hr> <br>';
 
 // Check for a valid user ID, through GET or POST:
-if ( (isset($_GET['id'])) && (is_numeric($_GET['id'])) ) { // From view_users.php
-	$id = $_GET['id'];
-} elseif ( (isset($_POST['id'])) && (is_numeric($_POST['id'])) ) { // Form submission.
-	$id = $_POST['id'];
+if ( (isset($_GET['empid'])) && (is_numeric($_GET['empid'])) ) { // From view_users.php
+	$id = $_GET['empid'];
+} elseif ( (isset($_POST['empid'])) && (is_numeric($_POST['empid'])) ) { // Form submission.
+	$id = $_POST['empid'];
 } else { // No valid ID, kill the script.
 	echo '<p class="error">This page has been accessed in error.</p>';
-	include ('inc/footer.html'); 
+	include ('inc/footer.php'); 
 	exit();
 }
 
@@ -153,10 +153,6 @@ if (isset($_POST['submitted'])) {
 			emphomephone='$hp', empstreetaddress='$sa', empstate='$s', empzip='$z', empdob='$dob', empssn='$sn',empmaritalstatus='$ms', user.password=SHA1('$p'),
 			empofficephone='$op', empjobtitle='$jb', empsup='$sup' WHERE empid=$id";
 			
-			//$q = "UPDATE employee INNER JOIN user USING (empid) SET employee.empfirstname='$fn', user.username='$un' WHERE empid=$id";
-			//$q = "UPDATE employee INNER JOIN user USING (empid) INNER JOIN department USING (empid) SET empfirstname='$fn', 
-			//emplastname='$ln', empnickname='$nn', empdob='$dob', empssn='$sn', 
-			//user.username='$un' department.deptName='$dpt' WHERE empid=$id";
 			
 			$r = @mysqli_query ($dbc, $q);
 			if (mysqli_affected_rows($dbc) == 1) { // If it ran OK.
@@ -231,5 +227,5 @@ Password: <input type="password" name="password" size="20" maxlength="30" value=
 
 mysqli_close($dbc);
 		
-include ('inc/footer.html');
+include ('inc/footer.php');
 ?>

@@ -1,6 +1,4 @@
-<?php # Script 11.9 - loggedin.php #2
-
-//The user is redirected here from login.php.
+<?php 
 
 session_start(); // Start the session.
 
@@ -13,15 +11,15 @@ if (!isset($_SESSION['empid'])) {
 }
 
 
-$page_title = 'ESSS| HR- Functions!';
-include ('./inc/header.html');
+$page_title = 'EMS - HR Functions!'; $crumbs = "EMS"; $pageurl = "/"; $subCrumbs = "HR FUNCTIONS"; $subCrumbsurl ="HR-functions.php";
+include ('./inc/header.php');
 
 
 if ($_SESSION['role']=="1")  {
-			echo '<h2>HR FUNCTIONS</h2><br><hr>	
+			echo '<button class="btn btn-large btn-info" type="button"><i class="icon-cog icon-white"></i> </button><br /> <hr class="soften">	
 			<br>Manage USER: Employees <br /><br />
 <ul class="linklist">
-					<li class="first"><a href="#"></a></li>
+					
 					<li><a href="employees.php">View Employees</a></li>
                     <li><a href="addnew.php">Add Employee</a></li>
                    <li><a href="search.php">Search Employee Directory</a></li>
@@ -30,7 +28,7 @@ if ($_SESSION['role']=="1")  {
 			 
 echo '<h2><small>REPORT MENU: </h2> </small><br /> <hr> <br />
 <ul class="linklist">
-					<li class="first"><a href="#"></a></li>
+					
 					<li><a href="deduction.php"> Employees Deduction</a></li>
 					<li><a href="report-maxhour-hourlyrate.php">Maximum Hours & Pay Rate of Hourly workers</a></li>
                     <li><a href="report-salary-employees.php">List of Employee recieving Annual Salary</a></li>
@@ -38,9 +36,15 @@ echo '<h2><small>REPORT MENU: </h2> </small><br /> <hr> <br />
 					
 				</ul> <br /> <br />';
 			 } else { 
-			 echo '<h2>Human Resource Function</h2> <br><hr> <br><br><center><font color= color="#FF0000">*****ACCESS DENIED***** <br><br> You don\'t have permission to view this page </center><br> ';}
+			 echo '<button class="btn btn-large btn-info" type="button"><i class="icon-cog icon-white"></i> </button><br /> <hr class="soften">
+<div class="alert alert-error">
+  <button type="button" class="close" data-dismiss="alert">x</button>
+  <h4><center>*****ACCESS DENIED*****</center></h4>
+  <center>You don\'t have permission to view this page!</center>
+</div>  <br />
+<hr class="soften">';}
            
-echo  '</div>';			 
-include './inc/sidebar.html';             		
-include ('./inc/footer.html');
+echo  '</div></div></div><hr class="soften">';			 
+           		
+include ('./inc/footer.php');
 ?>

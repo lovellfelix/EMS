@@ -1,4 +1,4 @@
-<?php # Script 8.3 - register.php
+<?php # 
 session_start(); // Start the session.
 
 // If no session value is present, redirect the user:
@@ -9,7 +9,7 @@ if (!isset($_SESSION['empid'])) {
 	exit();	
 }
 $page_title = 'Register';
-include ('inc/header.html');
+include ('inc/header.php');
 
 
 require_once ('./mysqli_connect.php'); 
@@ -173,7 +173,10 @@ if (isset($_POST['submitted'])) {
 ?>
 <h1> Add New Employee </h1> <br /><hr />
 <br /><b><u></b>Personal Information</u><br> <br>
-	<form action="add_employee.php" method="post">
+
+  
+	<form action="add_employee.php" class="form-inline" method="post">
+	<div class="control-group">
 <p>First Name: <input type="text" name="first_name" size="15" maxlength="15" value="<?php if (isset($_POST['first_name'])) echo $_POST['first_name']; ?>" /> 
 Last Name: <input type="text" name="last_name" size="19.5" maxlength="30" value="<?php if (isset($_POST['last_name'])) echo $_POST['first_name']; ?>" /></p>
 <p>Nick Name: <input type="text" name="nick_name" size="15" maxlength="30" value="<?php if (isset($_POST['nick_name'])) echo $_POST['nick_name']; ?>" /> Maritial Status: <input type="text" name="marital_status" size="16" maxlength="30" value="<?php if (isset($_POST['marital_status'])) echo $_POST['marital_status']; ?>" /></p>
@@ -200,6 +203,7 @@ Password: <input type="password" name="password" size="20" maxlength="30" value=
 <input type="hidden" name="id" value="' . $id . '" />
 </form>
 <br> <br>
+</div></div></div><hr class="soften">
 <?php
-include ('inc/footer.html');
+include ('inc/footer.php');
 ?>

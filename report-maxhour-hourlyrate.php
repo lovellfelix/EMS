@@ -1,10 +1,10 @@
-<?php # Script 9.5 - #5
+<?php 
 
 // This script retrieves all the records from the users table.
 // This new version allows the results to be sorted in different ways.
 session_start(); // Access the existing session.
-$page_title = 'ESSS| Report';
-include ('inc/header.html');
+$page_title = 'EMS - Report';
+include ('inc/header.php');
 echo '<h2><small>REPORT MENU: Hourly Employee Maximum Hours & Hourly Rate </h2> </small><br /> <hr> <br />';
 
 require_once ('./mysqli_connect.php');
@@ -125,5 +125,5 @@ if ($pages > 1) {
 	
 } // End of links section.
 	
-include ('inc/footer.html');
+include ('inc/footer.php');
 ?>

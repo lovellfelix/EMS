@@ -1,4 +1,4 @@
-<?php # Script 9.3 - edit_user.php
+<?php 
 
 // The user is redirected here from login.php.
 
@@ -11,8 +11,8 @@ if (!isset($_SESSION['empid'])) {
 	header("Location: $url");
 	exit();		
 }
-$page_title = 'ESSS| Employee Profile';
-include ('./inc/header.html');
+$page_title = 'EMS - Employee Profile';
+include ('./inc/header.php');
 
 echo '<h3>Messages View</h3> <br />';
 
@@ -51,5 +51,5 @@ echo '<p class="error">This page has been accessed in error.</p>';
 mysqli_close($dbc);
 }
 		
-include ('inc/footer.html');
+include ('inc/footer.php');
 ?>

@@ -1,4 +1,4 @@
-<?php # Script 11.11 - logout.php #2
+<?php 
 // This page lets the user logout.
 
 session_start(); // Access the existing session.
@@ -21,7 +21,7 @@ if (!isset($_SESSION['empid'])) {
 
 // Set the page title and include the HTML header:
 $page_title = 'Logged Out!';
-include ('./inc/header.html');
+include_once ('./inc/header.php');
 
 // Print a customized message:
 echo "<h1>Logged Out!</h1> <br /> <hr>
@@ -29,5 +29,6 @@ echo "<h1>Logged Out!</h1> <br /> <hr>
 <p>You are now logged out!</p> <br> </div>";
 
 include ('./inc/sidebar.html');
-include ('./inc/footer.html');
+echo('</div><hr class="soften">');
+include_once ('./inc/footer.php');
 ?>

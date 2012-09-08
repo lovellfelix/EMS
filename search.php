@@ -1,8 +1,8 @@
-<?php # Script 8.7 - password.php
+<?php 
 // This page lets a user change their password.
 
 $page_title = 'ESSS| Employee Search';
-include ('./inc/header.html');
+include ('./inc/header.php');
 
 // Check if the form has been submitted:
 if (isset($_POST['submitted'])) {
@@ -31,8 +31,7 @@ if (isset($_POST['submitted'])) {
 	
 	if (empty($errors)) { // If everything's OK.
 	
-		// Check that they've entered the right email address/password combination:
-			//$q = "SELECT empfirstname, emplastname, empjobtitle FROM employee where (emplastname= 'lovell')"; // WHERE (empfirstname='$fn') AND (emplastname='$ln')";
+		
 			$q = "SELECT empid, empfirstname, emplastname, empjobtitle 
 			FROM employee WHERE (empfirstname Like '%$fn%') and (emplastname LIKE '%$ln%')";
 
@@ -79,7 +78,7 @@ echo''
 			}
 
 			// Include the footer and quit the script (to not show the form).
-			include ('./inc/footer.html'); 
+			include ('./inc/footer.php'); 
 			exit();
 				
 		} else { // Invalid email address/password combination.
@@ -101,7 +100,7 @@ echo''
 	mysqli_close($dbc); // Close the database connection.
 		
 } // End of the main Submit conditional.
-include ('./inc/search.html');	
-//include ('./inc/sidebar.html'); echo '</div></div>';
-include ('./inc/footer.html');
+include ('./inc/search.php');	
+
+include ('./inc/footer.php');
 ?>

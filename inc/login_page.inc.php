@@ -1,11 +1,11 @@
-<?php # Script 11.1 - login_page.inc.php
+<?php # 
 
 // This page prints any errors associated with logging in
 // and it creates the entire login page, including the form.
 
 // Include the header:
-$page_title = 'ESSS| Login';
-include ('./inc/header.html');
+$page_title = 'ESSS| Login'; $crumbs = "EMS"; $pageurl = "/"; $subCrumbs = "";
+include_once ('./inc/header.php');
 
 // Print any error messages, if they exist:
 if (!empty($errors)) {
@@ -19,6 +19,8 @@ if (!empty($errors)) {
 
 // Display the form:
 ?>
+
+
 <h2>Login</h2>
 <br />
 <hr >
@@ -29,14 +31,13 @@ if (!empty($errors)) {
 <form action="login.php" method="post">
 	<p>UserName: <input type="text"  align="left"name="username" size="20" maxlength="80" /> </p>
 	<p>Password: <input type="password"  align="left" name="password" size="20" maxlength="20" /></p>
-	<p><input type="submit" name="submit" value="Login" /> </p>
+	
+	<button class="btn btn-inverse" type="submit" name="submit" value="Login">Login</button>
 	<input type="hidden" name="submitted" value="TRUE" />
 </form>
  <hr  />
  <p><b> <font color= color="#FF0000">DEMO Username and Password <br /> <br/>
  *Regular User <br />Username: bill.right <br />password: pa$$word <br  /> <br />
  *Manager <br />Username: jonas.hope <br />password: $kynet<br  /> <br /> </b>
-<?php // Include the footer:
 
-include ('./inc/footer.html');
-?>
+<?php include ('./inc/footer.php'); ?>

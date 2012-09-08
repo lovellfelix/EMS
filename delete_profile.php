@@ -1,4 +1,4 @@
-<?php # Script 9.2 - delete_user.php
+<?php
 
 // This page is for deleting a user record.
 // This page is accessed through view_users.php.
@@ -12,7 +12,7 @@ if (!isset($_SESSION['empid'])) {
 	exit();	
 }
 $page_title = 'Delete a User Profile| ESSS';
-include ('./inc/header.html');
+include ('./inc/header.php');
 echo '<h1>Delete User Profile</h1><br><hr><br>';
 
 // Check for a valid user ID, through GET or POST:
@@ -80,5 +80,5 @@ if (isset($_POST['submitted'])) {
 
 mysqli_close($dbc);
 		
-include ('./inc/footer.html');
+include ('./inc/footer.php');
 ?>

@@ -1,0 +1,527 @@
+-- phpMyAdmin SQL Dump
+-- version 3.3.9.2
+-- http://www.phpmyadmin.net
+--
+-- Host: localhost
+-- Generation Time: Sep 08, 2012 at 11:48 AM
+-- Server version: 5.5.9
+-- PHP Version: 5.3.6
+
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+--
+-- Database: `systems`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `building`
+--
+
+CREATE TABLE `building` (
+  `BldgID` int(11) NOT NULL AUTO_INCREMENT,
+  `BldgName` varchar(30) DEFAULT NULL,
+  PRIMARY KEY (`BldgID`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1031 ;
+
+--
+-- Dumping data for table `building`
+--
+
+INSERT INTO `building` VALUES(1010, 'grenville');
+INSERT INTO `building` VALUES(1011, 'victoria');
+INSERT INTO `building` VALUES(1012, 'princess');
+INSERT INTO `building` VALUES(1014, 'sammy');
+INSERT INTO `building` VALUES(1015, 'bollin');
+INSERT INTO `building` VALUES(1016, 'dillards');
+INSERT INTO `building` VALUES(1017, 'fain');
+INSERT INTO `building` VALUES(1018, 'calony');
+INSERT INTO `building` VALUES(1019, 'Jamesy');
+INSERT INTO `building` VALUES(1020, 'louis');
+INSERT INTO `building` VALUES(1021, 'astra');
+INSERT INTO `building` VALUES(1022, 'Costmos');
+INSERT INTO `building` VALUES(1023, 'village');
+INSERT INTO `building` VALUES(1024, 'bronx');
+INSERT INTO `building` VALUES(1025, 'harford');
+INSERT INTO `building` VALUES(1026, 'maribeau');
+INSERT INTO `building` VALUES(1027, 'paradise');
+INSERT INTO `building` VALUES(1028, 'dunfermline');
+INSERT INTO `building` VALUES(1029, 'grape vine');
+INSERT INTO `building` VALUES(1030, 'Bains Hall');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `contract employee`
+--
+
+CREATE TABLE `contract employee` (
+  `EmpID` int(11) NOT NULL AUTO_INCREMENT,
+  `EmpContractHourlyWage` int(11) DEFAULT NULL,
+  `EmpPermEmployer` varchar(10) DEFAULT NULL,
+  PRIMARY KEY (`EmpID`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=18 ;
+
+--
+-- Dumping data for table `contract employee`
+--
+
+INSERT INTO `contract employee` VALUES(1, 66, 'Real and S');
+INSERT INTO `contract employee` VALUES(2, 27, 'Miami Sons');
+INSERT INTO `contract employee` VALUES(3, 34, 'MimiLang');
+INSERT INTO `contract employee` VALUES(4, 56, 'Real and S');
+INSERT INTO `contract employee` VALUES(5, 63, 'Miami Sons');
+INSERT INTO `contract employee` VALUES(6, 56, 'Liamigua');
+INSERT INTO `contract employee` VALUES(7, 50, 'Sugar Ltd');
+INSERT INTO `contract employee` VALUES(8, 40, 'C&C Ltd');
+INSERT INTO `contract employee` VALUES(9, 45, 'TT&T');
+INSERT INTO `contract employee` VALUES(10, 43, 'M&M');
+INSERT INTO `contract employee` VALUES(11, 90, 'N&M');
+INSERT INTO `contract employee` VALUES(12, 87, 'JK&M');
+INSERT INTO `contract employee` VALUES(13, 56, 'LL&U');
+INSERT INTO `contract employee` VALUES(14, 76, 'MR&U');
+INSERT INTO `contract employee` VALUES(15, 98, 'Star Inc');
+INSERT INTO `contract employee` VALUES(16, 65, 'DI Ltd');
+INSERT INTO `contract employee` VALUES(17, 76, 'ORI Ltd');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `department`
+--
+
+CREATE TABLE `department` (
+  `DeptID` int(11) NOT NULL AUTO_INCREMENT,
+  `EmpID` int(11) NOT NULL,
+  `DeptName` varchar(40) DEFAULT NULL,
+  PRIMARY KEY (`DeptID`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3041 ;
+
+--
+-- Dumping data for table `department`
+--
+
+INSERT INTO `department` VALUES(1, 1, 'Human Resource');
+INSERT INTO `department` VALUES(2, 2, 'Sales');
+INSERT INTO `department` VALUES(3, 3, 'Finance');
+INSERT INTO `department` VALUES(1006, 4, 'Finance');
+INSERT INTO `department` VALUES(1040, 4, 'Finance');
+INSERT INTO `department` VALUES(1050, 5, 'Marketing');
+INSERT INTO `department` VALUES(1070, 5, 'Marketing');
+INSERT INTO `department` VALUES(1080, 6, 'Finance');
+INSERT INTO `department` VALUES(1090, 7, 'Marketing');
+INSERT INTO `department` VALUES(2000, 8, 'Finance');
+INSERT INTO `department` VALUES(2010, 9, 'Marketing');
+INSERT INTO `department` VALUES(2030, 10, 'Finance');
+INSERT INTO `department` VALUES(2040, 11, 'Marketing');
+INSERT INTO `department` VALUES(2050, 12, 'Finance');
+INSERT INTO `department` VALUES(2060, 13, 'Marketing');
+INSERT INTO `department` VALUES(2070, 14, 'Finance');
+INSERT INTO `department` VALUES(2080, 15, 'Marketing');
+INSERT INTO `department` VALUES(2090, 16, 'Finance');
+INSERT INTO `department` VALUES(3000, 17, 'Marketing');
+INSERT INTO `department` VALUES(3010, 18, 'Finance');
+INSERT INTO `department` VALUES(3020, 19, 'Marketing');
+INSERT INTO `department` VALUES(3030, 20, 'Finance');
+INSERT INTO `department` VALUES(3040, 21, 'Marketing');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `emergency contact`
+--
+
+CREATE TABLE `emergency contact` (
+  `EmpID` int(11) NOT NULL AUTO_INCREMENT,
+  `ConID` int(11) NOT NULL,
+  `ContactFirstName` varchar(25) DEFAULT NULL,
+  `ContactLastName` varchar(30) DEFAULT NULL,
+  `ContactMidName` varchar(25) DEFAULT NULL,
+  `ContactStreetAddress` varchar(50) DEFAULT NULL,
+  `ContactCity` varchar(25) DEFAULT NULL,
+  `ContactState` varchar(15) DEFAULT NULL,
+  `ContactZip` int(11) DEFAULT NULL,
+  `ContactHomePhone` int(11) DEFAULT NULL,
+  `ContactWorkPhone (Integer)` int(11) DEFAULT NULL,
+  PRIMARY KEY (`EmpID`,`ConID`),
+  KEY `ConID` (`ConID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+--
+-- Dumping data for table `emergency contact`
+--
+
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `employee`
+--
+
+CREATE TABLE `employee` (
+  `EmpID` int(11) NOT NULL AUTO_INCREMENT,
+  `EmpFirstName` varchar(25) DEFAULT NULL,
+  `EmpLastName` varchar(30) DEFAULT NULL,
+  `EmpNickname` varchar(25) DEFAULT NULL,
+  `EmpSSN` int(11) DEFAULT NULL,
+  `EmpHomePhone` varchar(11) DEFAULT NULL,
+  `EmpStreetAddress` varchar(50) DEFAULT NULL,
+  `EmpCity` varchar(25) DEFAULT NULL,
+  `EmpState` varchar(15) DEFAULT NULL,
+  `EmpZip` int(11) DEFAULT NULL,
+  `EmpDOB` date DEFAULT NULL,
+  `EmpMaritalStatus` varchar(10) DEFAULT NULL,
+  `EmpOfficePhone` varchar(11) DEFAULT NULL,
+  `EmpJobTitle` varchar(50) DEFAULT NULL,
+  `EmpSup` varchar(10) DEFAULT NULL,
+  `DeptID` int(11) DEFAULT NULL,
+  `MailStop` int(11) DEFAULT NULL,
+  `MiscID` int(11) DEFAULT NULL,
+  `UWEmpID` int(11) DEFAULT NULL,
+  `ConID` int(11) DEFAULT NULL,
+  PRIMARY KEY (`EmpID`),
+  KEY `ConID` (`ConID`),
+  KEY `DeptID (Long Integer)` (`DeptID`),
+  KEY `MiscID (Long Integer)` (`MiscID`),
+  KEY `MailStop (Long Integer)` (`MailStop`),
+  KEY `UWEmpID (Long Integer)` (`UWEmpID`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=23 ;
+
+--
+-- Dumping data for table `employee`
+--
+
+INSERT INTO `employee` VALUES(1, 'Lovell', 'Felix', 'Juicy', 940130022, '5556452222', '4700 taft blvd apt 84', 'Wichita Falls', 'TX', 76308, '1983-10-04', 'Single', '2147483647', 'Human Resource Manager', NULL, 10, NULL, NULL, NULL, NULL);
+INSERT INTO `employee` VALUES(2, 'Bill', 'Right', 'Billy', 777142888, '5558909876', '1084 wilmohr', 'Brooklyn', 'NY', 11212, '1987-05-13', 'Maried', '2147483647', 'Sales Clerk', 'John Villa', 1, NULL, NULL, NULL, NULL);
+INSERT INTO `employee` VALUES(3, 'Jonas', 'Hope', 'Jon', 640234567, '5556789032', '8890 turn street', 'Holywood', 'CA', 90222, '1980-10-01', 'Single', '2147483647', 'Receptionist', 'John Villa', 2, NULL, NULL, NULL, NULL);
+INSERT INTO `employee` VALUES(4, 'John', 'Doe', 'Jonny', 674231111, '5556408888', '2978 victoria street', 'Wichita Falls', 'TX', 76308, '0000-00-00', 'Single', '2147483647', 'Supervisor', 'Jonas Brow', 2, NULL, NULL, NULL, NULL);
+INSERT INTO `employee` VALUES(5, 'Daleyann', 'Alexander', 'nasha', 930444558, '5556454334', '1067 lotus lane', 'Charm City', 'NY', 11234, '1975-01-01', 'Married', '2147483647', 'Receptionist', 'Tim Graft', 2, NULL, NULL, NULL, NULL);
+INSERT INTO `employee` VALUES(6, 'James', 'Bond', '007', 709090909, '5556455221', 'Hideway point', 'Palm Beach', 'MI', 87565, '0000-00-00', 'Single', '2147483647', 'Security', 'John Villa', 1, NULL, NULL, NULL, NULL);
+INSERT INTO `employee` VALUES(7, 'John', 'Village', NULL, 880130074, '555645242', '3410 taft blvd', 'wichita falls', 'tx', 76308, '0000-00-00', 'Married', '2147483647', 'Manager', NULL, 2, NULL, NULL, NULL, NULL);
+INSERT INTO `employee` VALUES(8, 'Chuck', 'Johnston', 'Chuck 1', 644998080, '5556452332', '3410 taft blvd', 'Wichita Falls', 'TX', 76308, '1960-01-01', 'Maried', '2147483647', 'Manager', 'James McNe', 2, NULL, 3, 1010, 2020);
+INSERT INTO `employee` VALUES(9, 'Grace', 'Zhange', 'Gouya', 880130074, '5556444444', '2978 Victoria Street', 'Wichita Falls', 'TX', 90210, '1980-10-10', 'Married', '2147483647', 'Manager', 'Jonas Brow', 2, 0, 2021, 1012, 1023);
+INSERT INTO `employee` VALUES(10, 'Sally', 'May', 'Rich Kid', 930444657, '5556578090', 'Grown Town', 'New Hieghts', 'TN', 89210, '1990-10-01', 'Married', '2147483647', 'Mananger', 'Kim Collin', 3, NULL, NULL, NULL, NULL);
+INSERT INTO `employee` VALUES(11, 'Otus', 'Primus', NULL, 290220022, '5557483647', 'Wall Street', 'New York', 'NY', 12234, '1975-10-09', 'Single', '9803452011', 'Receptionist', 'Kim Collin', 3, NULL, NULL, 3, NULL);
+INSERT INTO `employee` VALUES(12, 'Billy', 'John', 'French', 940130022, '5558021345', '4700 taft blvd apt 84', 'Wichita Falls', 'TX', 76308, '1983-10-04', 'Single', '2147483647', 'Human Resource Manager', 'John Brown', 10, NULL, 2, NULL, NULL);
+INSERT INTO `employee` VALUES(13, 'Grant', 'Steven', 'Glass', 777142888, '5558364471', '1084 wilmohr', 'Brooklyn', 'NY', 11212, '1970-01-01', 'Maried', '2147483647', 'Sales Clerk', 'John Villa', 1, NULL, NULL, 3, NULL);
+INSERT INTO `employee` VALUES(14, 'Steven', 'Grant', 'Taylor', 776182222, '5554672030', '8890 Turn Street', 'Holywood', 'CA', 90222, '1980-01-01', 'Single', '214733947', 'Receptionist', 'John Villa', 2, NULL, 2, NULL, NULL);
+INSERT INTO `employee` VALUES(15, 'Majak', 'Mireck', 'Jonny', 674231111, '5557911090', '2978 Victoria Street', 'Wichita Falls', 'TX', 76308, '0000-00-00', 'Single', '2147483647', 'Supervisor', 'Jonas Brow', 2, NULL, NULL, 910, NULL);
+INSERT INTO `employee` VALUES(16, 'Frant', 'Alexander', 'Nasha', 930444558, '5556452221', '1067 lotus lane', 'Charm City', 'NY', 11234, '1980-10-01', 'Married', '2147483647', 'Receptionist', 'Kim Collin', 2, NULL, NULL, 920, NULL);
+INSERT INTO `employee` VALUES(17, 'Julia', 'Steven', '007', 709090909, '5556452001', 'Hideway Point', 'Palm Beach', 'MI', 875651, '1968-01-01', 'Single', '2147483647', 'Security', 'John Villa', 1, NULL, 1, NULL, NULL);
+INSERT INTO `employee` VALUES(18, 'Frank', 'Jack', 'Jacky', 880130074, '5556451111', '3410 taft blvd', 'Wichita Falls', 'TX', 76308, '1980-01-11', 'Married', '2147483647', 'Manager', 'Kim Collin', 2, NULL, 0, NULL, NULL);
+INSERT INTO `employee` VALUES(19, 'Chuck', 'James', 'Chuck', 903106799, '5556452201', '3410 taft blvd', 'Wichita Falls', 'tx', 76308, '0000-00-00', 'Maried', '2147483647', 'manager', NULL, 2, NULL, 3, 1010, 2020);
+INSERT INTO `employee` VALUES(20, 'Grace', 'Choice', 'Gouya', 880130074, '5556452012', '2978 victoria street', 'wichita falls', 'tx', 90210, '0000-00-00', 'Married', '2147483647', 'Manager', 'Jonas Brow', 2, 0, 2021, 1012, 1023);
+INSERT INTO `employee` VALUES(21, 'Sally', 'May', 'Rich Kid', 930444558, '5556452223', 'Grown Town', 'New Hieghts', 'TN', 89210, '0000-00-00', 'Married', '2147483647', 'mananger', NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `employee` VALUES(22, 'Jack', 'Primus', NULL, 2147483647, '5557890980', 'Wall Street', 'New York', 'NY', 12234, '1976-11-01', 'Single', '1147483647', 'Receptionist', 'Kim Collin', 1, NULL, 20, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `hourlyemployee`
+--
+
+CREATE TABLE `hourlyemployee` (
+  `EmpID` int(11) NOT NULL AUTO_INCREMENT,
+  `EmpHourlyRate` int(11) DEFAULT NULL,
+  `EmpMaxHours` int(11) DEFAULT NULL,
+  PRIMARY KEY (`EmpID`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=21 ;
+
+--
+-- Dumping data for table `hourlyemployee`
+--
+
+INSERT INTO `hourlyemployee` VALUES(1, 13, 40);
+INSERT INTO `hourlyemployee` VALUES(2, 18, 40);
+INSERT INTO `hourlyemployee` VALUES(3, 19, 40);
+INSERT INTO `hourlyemployee` VALUES(4, 18, 40);
+INSERT INTO `hourlyemployee` VALUES(5, 16, 40);
+INSERT INTO `hourlyemployee` VALUES(6, 10, 40);
+INSERT INTO `hourlyemployee` VALUES(7, 20, 15);
+INSERT INTO `hourlyemployee` VALUES(9, 18, 40);
+INSERT INTO `hourlyemployee` VALUES(10, 18, 40);
+INSERT INTO `hourlyemployee` VALUES(11, 18, 40);
+INSERT INTO `hourlyemployee` VALUES(12, 19, 40);
+INSERT INTO `hourlyemployee` VALUES(13, 18, 20);
+INSERT INTO `hourlyemployee` VALUES(14, 31, 45);
+INSERT INTO `hourlyemployee` VALUES(15, 18, 40);
+INSERT INTO `hourlyemployee` VALUES(16, 18, 40);
+INSERT INTO `hourlyemployee` VALUES(17, 18, 40);
+INSERT INTO `hourlyemployee` VALUES(18, 13, 40);
+INSERT INTO `hourlyemployee` VALUES(19, 18, 40);
+INSERT INTO `hourlyemployee` VALUES(20, 13, 40);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `maildrop`
+--
+
+CREATE TABLE `maildrop` (
+  `MailStop` int(11) NOT NULL AUTO_INCREMENT,
+  `BldgID` int(11) DEFAULT NULL,
+  `RoomNum` int(11) DEFAULT NULL,
+  PRIMARY KEY (`MailStop`),
+  KEY `BldgID (Long Integer)` (`BldgID`),
+  KEY `RoomNum (Long Integer)` (`RoomNum`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
+
+--
+-- Dumping data for table `maildrop`
+--
+
+INSERT INTO `maildrop` VALUES(3, 1013, 3);
+INSERT INTO `maildrop` VALUES(4, 1014, 4);
+INSERT INTO `maildrop` VALUES(5, 1015, 5);
+INSERT INTO `maildrop` VALUES(6, 1016, 6);
+INSERT INTO `maildrop` VALUES(7, 1017, 7);
+INSERT INTO `maildrop` VALUES(8, 1018, 8);
+INSERT INTO `maildrop` VALUES(9, 1019, 9);
+INSERT INTO `maildrop` VALUES(10, 1020, 10);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `miscdeduction`
+--
+
+CREATE TABLE `miscdeduction` (
+  `MiscID` int(11) NOT NULL AUTO_INCREMENT,
+  `DeDRequestDate` date DEFAULT NULL,
+  `DedName` varchar(50) DEFAULT NULL,
+  `DedFrequency` varchar(10) DEFAULT NULL,
+  `DedAmount` int(11) NOT NULL,
+  `EmpID` int(11) NOT NULL,
+  PRIMARY KEY (`MiscID`),
+  KEY `EmpID (Long Integer)` (`EmpID`),
+  KEY `MiscID (Long Integer)` (`MiscID`),
+  KEY `MiscID` (`MiscID`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=22 ;
+
+--
+-- Dumping data for table `miscdeduction`
+--
+
+INSERT INTO `miscdeduction` VALUES(1, '2009-11-03', 'United way', 'Monthly', 40, 1);
+INSERT INTO `miscdeduction` VALUES(2, '2010-05-21', 'Parking', 'Monthly', 50, 2);
+INSERT INTO `miscdeduction` VALUES(3, '2010-04-13', 'Extra-Life Insurance', 'Monthly', 60, 3);
+INSERT INTO `miscdeduction` VALUES(4, '2010-05-02', 'Pre-Tax Medical', 'Monthly', 70, 4);
+INSERT INTO `miscdeduction` VALUES(5, '2010-04-04', 'Pension', 'Monthly', 10, 5);
+INSERT INTO `miscdeduction` VALUES(12, '1998-01-10', 'Parking', 'Monthly', 10, 10);
+INSERT INTO `miscdeduction` VALUES(13, '1998-02-02', 'Extra-life insurance', 'Monthly', 10, 11);
+INSERT INTO `miscdeduction` VALUES(14, '1998-04-05', 'Pre-Tax-Medication', 'Monthly', 10, 12);
+INSERT INTO `miscdeduction` VALUES(15, '1998-04-05', 'pension', 'Monthly', 88, 13);
+INSERT INTO `miscdeduction` VALUES(16, '1998-01-05', 'Pension', 'Monthly', 88, 14);
+INSERT INTO `miscdeduction` VALUES(17, '2009-11-03', 'Parking', 'Bi-weekly', 10, 15);
+INSERT INTO `miscdeduction` VALUES(18, '2010-05-21', 'Extra-life Insurance', 'Monthly', 0, 16);
+INSERT INTO `miscdeduction` VALUES(19, '2010-04-13', 'Pre-tax medical', 'Bi-weekly', 30, 17);
+INSERT INTO `miscdeduction` VALUES(20, '2010-05-02', 'Pension', 'Monthly', 88, 18);
+INSERT INTO `miscdeduction` VALUES(21, '2010-04-04', 'Parking', 'Bi-weekly', 10, 19);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `room`
+--
+
+CREATE TABLE `room` (
+  `RoomNum` int(11) NOT NULL AUTO_INCREMENT,
+  `BldgID` int(11) DEFAULT NULL,
+  `SiteID` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`RoomNum`,`SiteID`),
+  KEY `BldgID (Long Integer)` (`BldgID`),
+  KEY `SiteID` (`SiteID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+--
+-- Dumping data for table `room`
+--
+
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `salaryemployee`
+--
+
+CREATE TABLE `salaryemployee` (
+  `EmpID` int(11) NOT NULL,
+  `EmpAnnualSalary` int(11) DEFAULT NULL,
+  PRIMARY KEY (`EmpID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `salaryemployee`
+--
+
+INSERT INTO `salaryemployee` VALUES(1, 48000);
+INSERT INTO `salaryemployee` VALUES(2, 56000);
+INSERT INTO `salaryemployee` VALUES(3, 70000);
+INSERT INTO `salaryemployee` VALUES(4, 800000);
+INSERT INTO `salaryemployee` VALUES(5, 567890);
+INSERT INTO `salaryemployee` VALUES(6, 840000);
+INSERT INTO `salaryemployee` VALUES(7, 69000);
+INSERT INTO `salaryemployee` VALUES(8, 680000);
+INSERT INTO `salaryemployee` VALUES(11, 48000);
+INSERT INTO `salaryemployee` VALUES(12, 56000);
+INSERT INTO `salaryemployee` VALUES(13, 70000);
+INSERT INTO `salaryemployee` VALUES(14, 70000);
+INSERT INTO `salaryemployee` VALUES(15, 69000);
+INSERT INTO `salaryemployee` VALUES(17, 69000);
+INSERT INTO `salaryemployee` VALUES(19, 567890);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `site`
+--
+
+CREATE TABLE `site` (
+  `SiteID` int(11) NOT NULL,
+  `Sitename` varchar(25) DEFAULT NULL,
+  PRIMARY KEY (`SiteID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `site`
+--
+
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `unitedway`
+--
+
+CREATE TABLE `unitedway` (
+  `UWID` int(11) NOT NULL AUTO_INCREMENT,
+  `UWYear` int(11) DEFAULT NULL,
+  `UWType` varchar(10) DEFAULT NULL,
+  `UWAmount` int(11) DEFAULT NULL,
+  `EmpID` varchar(255) NOT NULL DEFAULT '',
+  PRIMARY KEY (`UWID`),
+  KEY `UWEmpID (Long Integer)` (`UWID`),
+  KEY `EmpID (Long Integer)` (`EmpID`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2051 ;
+
+--
+-- Dumping data for table `unitedway`
+--
+
+INSERT INTO `unitedway` VALUES(900, 2006, 'YEARLY', 80, '12');
+INSERT INTO `unitedway` VALUES(910, 1998, NULL, 25000, '1');
+INSERT INTO `unitedway` VALUES(920, 1995, NULL, 2000, '2');
+INSERT INTO `unitedway` VALUES(930, 2000, NULL, 12000, '3');
+INSERT INTO `unitedway` VALUES(940, 2005, NULL, 1000, '20');
+INSERT INTO `unitedway` VALUES(950, 2006, NULL, 12000, '4');
+INSERT INTO `unitedway` VALUES(960, 2005, NULL, 12000, '7');
+INSERT INTO `unitedway` VALUES(970, 1998, NULL, 2300, '6');
+INSERT INTO `unitedway` VALUES(980, 1999, NULL, 2300, '5');
+INSERT INTO `unitedway` VALUES(1000, 1999, NULL, 2300, '14');
+INSERT INTO `unitedway` VALUES(1010, 1999, NULL, 2600, '8');
+INSERT INTO `unitedway` VALUES(1020, 1998, NULL, 25000, '11');
+INSERT INTO `unitedway` VALUES(1030, 2000, NULL, 12000, '13');
+INSERT INTO `unitedway` VALUES(1040, 2005, NULL, 1000, '9');
+INSERT INTO `unitedway` VALUES(1050, 1995, NULL, 2000, '10');
+INSERT INTO `unitedway` VALUES(1070, 1998, NULL, 2300, '15');
+INSERT INTO `unitedway` VALUES(1080, 1999, NULL, 2300, '16');
+INSERT INTO `unitedway` VALUES(1090, 1999, NULL, 2300, '17');
+INSERT INTO `unitedway` VALUES(2000, 1999, NULL, 2300, '19');
+INSERT INTO `unitedway` VALUES(2010, 1999, NULL, 2600, '18');
+INSERT INTO `unitedway` VALUES(2040, 2007, 'YEARLY', 200, '21');
+INSERT INTO `unitedway` VALUES(2050, 2008, 'SEMI', 100, '22');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
+--
+
+CREATE TABLE `user` (
+  `EmpID` int(11) NOT NULL AUTO_INCREMENT,
+  `UserName` varchar(255) DEFAULT NULL,
+  `Password` varchar(255) DEFAULT NULL,
+  `Role` varchar(255) DEFAULT '0',
+  PRIMARY KEY (`EmpID`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=22 ;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` VALUES(1, 'lovell.felix', '5439170782d3d688dbd2a86fba6c098a46d60448', '1');
+INSERT INTO `user` VALUES(2, 'bill.right', '119e9f64e12b97293a8334ccd162c1245786336d', '0');
+INSERT INTO `user` VALUES(3, 'jonas.hope', '5439170782d3d688dbd2a86fba6c098a46d60448', '1');
+INSERT INTO `user` VALUES(4, 'john.doe', 'c0b137fe2d792459f26ff763cce44574a5b5ab03', '0');
+INSERT INTO `user` VALUES(5, 'daleyann.alexander', '79c7b24e1d3f432dedea7e64920f1486e0ff0f73', '0');
+INSERT INTO `user` VALUES(6, 'james.bond', 'c0b137fe2d792459f26ff763cce44574a5b5ab03', '0');
+INSERT INTO `user` VALUES(7, 'charles.johnston', 'c0b137fe2d792459f26ff763cce44574a5b5ab03', '0');
+INSERT INTO `user` VALUES(8, 'grace.zhange', 'c0b137fe2d792459f26ff763cce44574a5b5ab03', '0');
+INSERT INTO `user` VALUES(9, 'sally.may', 'c0b137fe2d792459f26ff763cce44574a5b5ab03', '0');
+INSERT INTO `user` VALUES(10, 'otus.primus', 'c0b137fe2d792459f26ff763cce44574a5b5ab03', '0');
+INSERT INTO `user` VALUES(11, 'billy.john', 'c0b137fe2d792459f26ff763cce44574a5b5ab03', '0');
+INSERT INTO `user` VALUES(12, 'grant.steven', 'c0b137fe2d792459f26ff763cce44574a5b5ab03', '0');
+INSERT INTO `user` VALUES(13, 'steven.grant', 'c0b137fe2d792459f26ff763cce44574a5b5ab03', '0');
+INSERT INTO `user` VALUES(14, 'billy.john', 'c0b137fe2d792459f26ff763cce44574a5b5ab03', '0');
+INSERT INTO `user` VALUES(15, 'majak.mireck', 'c0b137fe2d792459f26ff763cce44574a5b5ab03', '0');
+INSERT INTO `user` VALUES(16, 'frant.alexander', 'c0b137fe2d792459f26ff763cce44574a5b5ab03', '0');
+INSERT INTO `user` VALUES(17, 'jane.james', 'c0b137fe2d792459f26ff763cce44574a5b5ab03', '0');
+INSERT INTO `user` VALUES(18, 'sally2.may', '79c7b24e1d3f432dedea7e64920f1486e0ff0f73', '0');
+INSERT INTO `user` VALUES(19, 'jack.primus', 'c0b137fe2d792459f26ff763cce44574a5b5ab03', '0');
+INSERT INTO `user` VALUES(20, 'firstname.lastname', 'c0b137fe2d792459f26ff763cce44574a5b5ab03', '0');
+INSERT INTO `user` VALUES(21, 'firstname.lastname', 'c0b137fe2d792459f26ff763cce44574a5b5ab03', '0');
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `contract employee`
+--
+ALTER TABLE `contract employee`
+  ADD CONSTRAINT `contract@0020employee_ibfk_1` FOREIGN KEY (`EmpID`) REFERENCES `employee` (`EmpID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `emergency contact`
+--
+ALTER TABLE `emergency contact`
+  ADD CONSTRAINT `emergency@0020contact_ibfk_1` FOREIGN KEY (`EmpID`) REFERENCES `employee` (`EmpID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `hourlyemployee`
+--
+ALTER TABLE `hourlyemployee`
+  ADD CONSTRAINT `hourlyemployee_ibfk_1` FOREIGN KEY (`EmpID`) REFERENCES `employee` (`EmpID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `miscdeduction`
+--
+ALTER TABLE `miscdeduction`
+  ADD CONSTRAINT `miscdeduction_ibfk_1` FOREIGN KEY (`MiscID`) REFERENCES `employee` (`EmpID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `room`
+--
+ALTER TABLE `room`
+  ADD CONSTRAINT `room_ibfk_1` FOREIGN KEY (`BldgID`) REFERENCES `building` (`BldgID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `room_ibfk_2` FOREIGN KEY (`RoomNum`) REFERENCES `maildrop` (`RoomNum`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `room_ibfk_3` FOREIGN KEY (`SiteID`) REFERENCES `site` (`SiteID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `salaryemployee`
+--
+ALTER TABLE `salaryemployee`
+  ADD CONSTRAINT `salaryemployee_ibfk_1` FOREIGN KEY (`EmpID`) REFERENCES `employee` (`EmpID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `user`
+--
+ALTER TABLE `user`
+  ADD CONSTRAINT `user_ibfk_1` FOREIGN KEY (`EmpID`) REFERENCES `employee` (`EmpID`) ON DELETE CASCADE ON UPDATE CASCADE;

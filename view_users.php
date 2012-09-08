@@ -1,9 +1,9 @@
-<?php # Script 9.5 - #5
+<?php # 
 
 // This script retrieves all the records from the users table.
 // This new version allows the results to be sorted in different ways.
 
-$page_title = 'ESSS| Employee Directory';
+$page_title = 'EMS - Employee Directory';
 include ('inc/header.html');
 echo '<h1>List of Employees</h1> <br > <hr > <br > ';
 
@@ -58,7 +58,7 @@ switch ($sort) {
 }
 	
 // Make the query:
-//$q = "SELECT last_name, first_name, DATE_FORMAT(registration_date, '%M %d, %Y') AS dr, user_id FROM users ORDER BY $order_by LIMIT $start, $display";	
+
 $q = "SELECT empid, empfirstname, emplastname, empjobtitle, emphomephone FROM employee";
 $r = @mysqli_query ($dbc, $q); // Run the query.
 
@@ -125,5 +125,5 @@ if ($pages > 1) {
 	
 } // End of links section.
 	
-include ('./inc/footer.html');
+include ('./inc/footer.php');
 ?>

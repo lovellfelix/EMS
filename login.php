@@ -1,4 +1,4 @@
-<?php # Script 11.12 - login.php #4
+<?php 
 
 if (isset($_POST['submitted'])) {
 

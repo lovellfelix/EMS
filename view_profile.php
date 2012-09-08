@@ -1,4 +1,4 @@
-<?php # Script 9.3 - edit_user.php
+<?php 
 
 // This page is for editing a user record.
 // This page is accessed through view_users.php.
@@ -13,8 +13,8 @@ if (!isset($_SESSION['empid'])) {
 	header("Location: $url");
 	exit();	
 }
-$page_title = 'ESSS| User Profile';
-include ('inc/header.html');
+$page_title = 'EMS - User Profile';
+include ('inc/header.php');
 
 echo '<h1>' . $row[0] . ' ' . $row[1] . '</h1>';
 
@@ -39,7 +39,7 @@ employee.empstate, employee.empzip, employee.empofficephone, employee.emphomepho
 employee.empmaritalstatus, employee.empdob, employee.empssn, user.username, user.password, user.role,
 unitedway.empid, unitedway.uwid, unitedway.uwyear, unitedway.uwtype, CONCAT(  '$', FORMAT( unitedway.uwamount, 2 ) ) As uwamount FROM employee, user, unitedway WHERE employee.empid=$id AND user.empid=$id 
 ";	
-//$l = "Select unitedway.empid, uwyear from unitedway where unitedway.empid=$id";
+
 $r = @mysqli_query ($dbc, $q);
 //$rl = @mysqli_query ($dbc, $rl);
 if (mysqli_num_rows($r) == 1) { // Valid user ID, show the form.
@@ -123,5 +123,5 @@ echo '<p> <a href="employees.php"> Return to Employee Directory</a> * <a href="e
 
 mysqli_close($dbc);
 		
-include ('inc/footer.html');
+include ('inc/footer.php');
 ?>

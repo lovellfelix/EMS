@@ -1,12 +1,12 @@
-<?php # Script 8.2 - mysqli_connect.php
+<?php 
 
 // This file contains the database access information. 
 // This file also establishes a connection to MySQL 
 // and selects the database.
 
 // Set the database access information as constants:
-DEFINE ('DB_USER', 'website_admin');
-DEFINE ('DB_PASSWORD', 'pa$$word');
+DEFINE ('DB_USER', 'dbuser');
+DEFINE ('DB_PASSWORD', 'dbpassword');
 DEFINE ('DB_HOST', 'localhost');
 DEFINE ('DB_NAME', 'systems');
 

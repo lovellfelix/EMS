@@ -1,8 +1,5 @@
-<?php # Script 9.5 - #5
+<?php # 
 
-// This script retrieves all the records from the users table.
-// This new version allows the results to be sorted in different ways.
-// The user is redirected here from login.php.
 
 session_start(); // Start the session.
 
@@ -13,9 +10,9 @@ if (!isset($_SESSION['empid'])) {
 	header("Location: $url");
 	exit();	
 }
-$page_title = 'ESSS| Employee Directory';
-include ('inc/header.html');
-echo '<h1>List of Employees</h1> <br /> <hr> <br />';
+$page_title = 'EMS - Employee Directory'; $crumbs = "EMS"; $pageurl = "/"; $subCrumbs = "EMPLOYEE DIRECTORY"; $subCrumbsurl = "emplyees.php";
+include_once ('inc/header.php');
+echo '<button class="btn btn-large btn-info" type="button"><i class="icon-list-alt icon-white"></i> </button><br /> <hr class="soften"> ';
 
 require_once ('./mysqli_connect.php');
 
@@ -52,18 +49,18 @@ $sort = (isset($_GET['sort'])) ? $_GET['sort'] : 'rd';
 
 // Determine the sorting order:
 switch ($sort) {
-	case 'rf':
+	case 'fn':
 		$order_by = 'empfirstname ASC';
 		break;
-	case 't':
+	case 'ln':
 		$order_by = 'emplastname ASC';
 		break;
-	case 'c':
+	case 't':
 		$order_by = 'empjobtitle ASC';
 		break;
 	default:
-		$order_by = 'empfirstname ASC';
-		$sort = 't';
+		$order_by = 'empofficephone ASC';
+		$sort = 'c';
 		break;
 }
 	
@@ -72,13 +69,13 @@ $q = "SELECT empfirstname, emplastname, empjobtitle, empid, empofficephone FROM 
 $r = @mysqli_query ($dbc, $q); // Run the query.
 
 // Table header:
-echo '<table align="center" cellspacing="1" cellpadding="4" width="100%">
+echo '<table class="table " align="center" cellspacing="1" cellpadding="4" width="100%">
 
-<tr>
-	<td align="left"><b><a href="employees.php?sort=rf">First Name</a></b></td>
-	<td align="left"><b><a href="employees.php?sort=t">Last Name</a></b></td>
-	<td align="left"><b><a href="employees.php?sort=c">Job Title</a></b></td>
-	<td align="left"><b><a href="employees.php?sort=rf">Contact Number</a></b></td>
+<tr class="success">
+	<td align="left"><b><a href="employees.php?sort=fn">First Name</a></b></td>
+	<td align="left"><b><a href="employees.php?sort=ln">Last Name</a></b></td>
+	<td align="left"><b><a href="employees.php?sort=t">Job Title</a></b></td>
+	<td align="left"><b><a href="employees.php?sort=c">Contact Number</a></b></td>
 	<td align="left"><b>Profile</b></td>
 </tr>
 ';
@@ -131,7 +128,7 @@ if ($pages > 1) {
 	echo '</p>'; // Close the paragraph.
 	
 } // End of links section.
-echo '</div>';
-//include './inc/sidebar.html'; 	
-include ('inc/footer.html');
+echo '</div></div></div><hr class="soften">';
+	
+include_once ('inc/footer.php');
 ?>

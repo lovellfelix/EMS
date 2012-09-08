@@ -1,10 +1,10 @@
-<?php # Script 9.5 - #5
+<?php 
 
 // This script retrieves all the records from the users table.
 // This new version allows the results to be sorted in different ways.
 session_start(); // Access the existing session.
-$page_title = 'ESSS| Report-Salary Employees';
-include ('inc/header.html');
+$page_title = 'EMS- Report-Salary Employees';
+include ('inc/header.php');
 echo '<h2><small>REPORT MENU: United Way Contribution by Employees</h2> </small><br /> <hr> <br />';
 
 require_once ('./mysqli_connect.php');
@@ -124,5 +124,5 @@ if ($pages > 1) {
 	
 } // End of links section.
 	
-include ('inc/footer.html');
+include ('inc/footer.php');
 ?>
