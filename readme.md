@@ -17,7 +17,7 @@ Employee Management System control Human Resources and personnel management. Adv
 
 Starter database included /sql/ems.mssql
 
-##Screenshoot
+##Screenshot
 
 ![EMS](https://github.com/lovellfelix/ems/raw/master/doc/img/s1.png)\
 
